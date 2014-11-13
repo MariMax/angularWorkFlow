@@ -6,11 +6,10 @@ module.exports = function(config) {
     basePath : '..', //!\\ Ignored through gulp-karma //!\\
 
     files : [ //!\\ Ignored through gulp-karma //!\\
-        'src/bower_components/angular/angular.js',
-        'src/bower_components/angular/angular-route.js',
-        'src/bower_components/angular-mocks/angular-mocks.js',
-        'src/app/** /*.js',
-        'test/unit/** /*.js'
+        'bower_components/angular/angular.js',
+        'bower_components/angular-mocks/angular-mocks.js',
+        'src/app/**/*.js',
+        'test/unit/**/*.js'
     ],
 
     autoWatch : false,
@@ -21,6 +20,7 @@ module.exports = function(config) {
 
     plugins : [
         'karma-phantomjs-launcher',
+        'karma-chrome-launcher',
         'karma-jasmine'
     ]
   });

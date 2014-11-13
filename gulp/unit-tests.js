@@ -6,21 +6,25 @@ var $ = require('gulp-load-plugins')();
 
 var wiredep = require('wiredep');
 
+var streamqueue = require('streamqueue');
+var mainBowerFiles = require('main-bower-files');
+
 gulp.task('test', function() {
-  var bowerDeps = wiredep({
-    directory: 'bower_components',
-    exclude: ['bootstrap-sass-official'],
-    dependencies: true,
-    devDependencies: true
-  });
 
-  var testFiles = bowerDeps.js.concat([
-    'src/{app,components}/**/*.js',
-    'test/unit/**/*.js'
-  ]);
+  var bowerFiles = gulp.src(mainBowerFiles({filter:/.*js$/}));
 
-  return gulp.src(testFiles)
-    .pipe($.karma({
+  var files = gulp.src('src/{app,components}/**/*.js').pipe($.angularFilesort());
+
+  var tests = gulp.src('test/unit/**/*.js');
+
+
+  return streamqueue({ objectMode: true },
+            bowerFiles,
+            gulp.src('bower_components/**/angular-mocks.js'),
+            files,
+            tests
+        )
+         .pipe($.karma({
       configFile: 'test/karma.conf.js',
       action: 'run'
     }))
@@ -28,4 +32,5 @@ gulp.task('test', function() {
       // Make sure failed tests cause gulp to exit non-zero
       throw err;
     });
+
 });
