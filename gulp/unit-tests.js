@@ -20,7 +20,6 @@ gulp.task('test', function() {
 
   return streamqueue({ objectMode: true },
             bowerFiles,
-            gulp.src('bower_components/**/angular-mocks.js'),
             files,
             tests
         )

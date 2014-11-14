@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('mainModule',['ui.router']);
+angular.module('mainModule',[]);

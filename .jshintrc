@@ -20,6 +20,10 @@
   "white": true,
   "validthis": true,
   "globals": {
-    "angular": false
+    "angular": false,
+    "$":false,
+    "_":false,
+    "XMLHttpRequest": false,
+    "window": false
   }
 }

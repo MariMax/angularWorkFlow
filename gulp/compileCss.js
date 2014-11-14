@@ -15,5 +15,5 @@ gulp.task('compileCss', function() {
             cascade: false
         }))
         .pipe($.csso())
-        .pipe(gulp.dest('./src/assets'));
+        .pipe(gulp.dest('./src/assets/css/compilledCss'));
 });

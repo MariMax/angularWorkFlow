@@ -8,17 +8,20 @@ var browserSync = require('browser-sync');
 
 var middleware = require('./proxy');
 
-function browserSyncInit(baseDir, files, browser) {
+function browserSyncInit(baseDir, files, browser, baseFile) {
   browser = browser === undefined ? 'default' : browser;
+  baseFile = baseFile===undefined ? '/index.html':baseFile
 
-  var routes = null;
+  var routes = {};
   if(baseDir === 'src' || (util.isArray(baseDir) && baseDir.indexOf('src') !== -1)) {
     routes = {
       // Should be '/bower_components': '../bower_components'
       // Waiting for https://github.com/shakyShane/browser-sync/issues/308
-      '/bower_components': 'bower_components'
+      '/bower_components': 'bower_components',
     };
   }
+
+  routes['/mocks'] ='mocks';
 
   browserSync.instance = browserSync.init(files, {
     startPath: '/index.html',
@@ -48,9 +51,9 @@ gulp.task('serve:dist', ['build'], function () {
 });
 
 gulp.task('serve:e2e', function () {
-  browserSyncInit(['src'], null, []);
+  browserSyncInit('src');
 });
 
 gulp.task('serve:e2e-dist', ['watch'], function () {
-  browserSyncInit('dist', null, []);
+  browserSyncInit('dist');
 });

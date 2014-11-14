@@ -2,21 +2,24 @@
 <html class="no-js" ng-app="handsomeTry">
   <head>
     <meta charset="utf-8">
-    <title>frontend</title>
+    <title>handsomeTry</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp,src}) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="../bower_components/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="../bower_components/bootstrap-css-only/css/bootstrap.css" />
+    <link rel="stylesheet" href="../bower_components/handsontable/dist/jquery.handsontable.full.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css({.tmp,src}) styles/app.css -->
     <!-- inject:userCss -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/compilledCss/css/experiments.css">
+    <link rel="stylesheet" href="assets/css/compilledCss/css/style.css">
     <!-- endinject -->     
     <!-- endbuild -->
 
@@ -25,7 +28,7 @@
     <!-- endbuild -->
   </head>
   <body>
-    <!--[if lt IE 10]>
+    <!--[if lt IE 9]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
@@ -47,12 +50,21 @@
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/angular-touch/angular-touch.js"></script>
+    <script src="../bower_components/zeroclipboard/dist/ZeroClipboard.js"></script>
+    <script src="../bower_components/handsontable/dist/jquery.handsontable.full.js"></script>
+    <script src="../bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js({.tmp,src}) scripts/app.js -->
     <!-- inject:userJS -->
     <script src="app/home/home.module.js"></script>
+    <script src="app/home/serveces/backEnd.js"></script>
+    <script src="app/home/directives/home.experimentsTable.js"></script>
     <script src="app/home/controllers/home.controller.js"></script>
+    <script src="app/home/mock.js"></script>
     <script src="app/home/home.router.js"></script>
     <script src="app/main.js"></script>
     <!-- endinject -->
