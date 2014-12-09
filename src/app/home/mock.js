@@ -13,7 +13,7 @@
             return details;
         }
 
-        $httpBackend.whenPOST(/\/experiments/).respond(function() {
+        $httpBackend.whenGET(/\/samples/).respond(function() {
             return [200, returnSamplesLikeServer(), {}];
         });
     });

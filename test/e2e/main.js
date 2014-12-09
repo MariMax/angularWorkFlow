@@ -6,18 +6,6 @@ describe('The main view', function() {
         browser.get('http://localhost:3000/index.html');
     });
 
-    it('list more than 5 awesome things', function() {
-        element.all(by.tagName('tr')).count().then(function(count) {
-            expect(count >= 8).toBeTruthy();
-        });
-    });
-
-    it('page should has 4 tables', function() {
-        element.all(by.tagName('table')).count().then(function(count) {
-            expect(count >= 4).toBeTruthy();
-        });
-    });
-
     it('page should has search field', function() {
         element.all(by.id('srch-term')).count().then(function(count) {
             expect(count === 1).toBeTruthy();
@@ -36,9 +24,9 @@ describe('The main view', function() {
         });
     }); 
 
-    it('page should has 3 fieldsets', function() {
+    it('page should has 2 fieldsets', function() {
         element.all(by.tagName('fieldset')).count().then(function(count) {
-            expect(count === 3).toBeTruthy();
+            expect(count === 2).toBeTruthy();
         });
     });     
 

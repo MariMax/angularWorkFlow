@@ -1,7 +1,7 @@
 'use strict';
 
 describe('controllers', function() {
-    var scope, $httpBackend, $rootScope, $q, createController, mockBackEnd, backEnd;
+    var scope, $httpBackend, $rootScope, createController, mockBackEnd, backEnd;
 
     beforeEach(module('handsomeTry'));
 
@@ -14,15 +14,13 @@ describe('controllers', function() {
         // The $controller service is used to create instances of controllers
         var $controller = $injector.get('$controller');
 
-        backEnd = $injector.get('experimentsBackEnd');
-
-        $q = $injector.get('$q');
+        backEnd = $injector.get('backEnd');
 
         createController = function() {
             scope = $rootScope.$new();
             $controller('MainCtrl', {
                 '$scope': scope,
-                'experimentsBackEnd':backEnd
+                'backEnd':backEnd
             });
         };
     }));
@@ -33,40 +31,17 @@ describe('controllers', function() {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it('should define more than 4 data rows', function() {
-        expect(scope).toBeUndefined();
 
-        spyOn(backEnd, "getFilteredExperiments").andCallFake(function() {
-            var deferred = $q.defer();
-            deferred.resolve([
-                ["Screen 1", "15/07/2014", "PabloValensio", "Submited", "CRNA"],
-                ["Screen 2", "11/07/2014", "ValentinaLukoshenko", "Pablished", "AnotherPlatform"],
-                ["Screen 3", "13/04/2012", "MikeTyson", "Draft", "ThirdPlatform"],
-                ["Screen 4", "12/05/2014", "VV", "Draft", "CRNA"]
-            ]);
-            return {
-                promise: deferred.promise
-            };
-        });
-
-        createController();
-
-        scope.$apply();
-
-        expect(angular.isArray(scope.data)).toBeTruthy();
-        expect(scope.data.length === 4).toBeTruthy();
-    });
-
-    it('should contain check object with keys submited, drafts, published and they should be true', function() {
+    it('should contain check object with keys check1, check2, check3 and they should be true', function() {
         expect(scope).toBeUndefined();
 
         createController();
 
         expect(scope.check).not.toBeUndefined();
         expect(scope.check).not.toBeNull();
-        expect(scope.check.submited).toBe(true);
-        expect(scope.check.drafts).toBe(true);
-        expect(scope.check.published).toBe(true);
+        expect(scope.check.check1).toBe(true);
+        expect(scope.check.check2).toBe(true);
+        expect(scope.check.check3).toBe(true);
 
     });
 
