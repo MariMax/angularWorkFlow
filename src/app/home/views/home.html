@@ -1,63 +1,40 @@
-<div class="container">
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <!--             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <i class="fa fa-home fa-fw"></i>
-                </a>
-            </div> -->
-            <ul class="nav navbar-nav">
-                <li><a href=""><i class="fa fa-pencil-square-o fa-fw"></i> Do some awesome staff</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 pull-left">
-            <div class="wrap-content-box">
-                <form role="search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="<lookup search>" name="srch-term" id="srch-term">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i>
-                            </button>
-                        </div>
+    <div class="login-page">
+        <div class="content-wrapper">
+            <div class="login-form">
+                <div class="header">
+                    <div class="banner"><img src="http://placehold.it/265x80&text=Logo%20or%20banner">
                     </div>
-                </form>
+                </div>
+                <div class="info">
+                    <p>Sign in form</p>
+                </div>
+                <div class="user-name">
+                    <p>Username</p>
+                </div>
+                <div class="user-name-input"><i class="fa fa-envelope"></i>
+                    <input type="email" ng-model="email">
+                </div>
+                <div class="password">
+                    <p>Password</p>
+                </div>
+                <div class="password-input"><i class="fa fa-lock"></i>
+                    <input type="password" ng-model="password">
+                </div>
+                <div class="sign-in"><a href="" ng-click="signIn()">Sign in</a><a ng-show="showError">Authentification error</a>
+                </div>
+                <div class="footer"></div>
             </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-            <div class="wrap-content-box">
-                <div class="btn-group">
-                    <label class="btn btn-default" ng-model="ownModel" btn-radio="'My'">My</label>
-                    <label class="btn btn-default" ng-model="ownModel" btn-radio="'All'">All</label>
+            <div class="additional-info">
+                <div class="logo"><img src="http://placehold.it/265x80&text=Logo%20picture" alt="Logo">
+                </div>
+                <div class="header">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, quod?
+                    </p>
+                </div>
+                <div class="text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque illo rem et laboriosam distinctio doloribus veritatis repellat, quaerat officiis, amet praesentium obcaecati, quia modi numquam eum consequuntur tempore libero voluptates cupiditate perspiciatis harum accusamus minus? Numquam repellat molestiae impedit, officia.</p>
                 </div>
             </div>
         </div>
-
-        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-            <div class="wrap-content-box">
-                <div class="btn-group">
-                    <label class="btn btn-default" ng-model="check.check1" btn-checkbox>Check1</label>
-                    <label class="btn btn-default" ng-model="check.check2" btn-checkbox>Check2</label>
-                    <label class="btn btn-default" ng-model="check.check3" btn-checkbox>Check3</label>
-                </div>
-            </div>
-        </div>
-
     </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
-            <fieldset class="fieldset-border">
-                <legend class="fieldset-border">Something interesting we can find here</legend>
-            </fieldset>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
-            <fieldset class="fieldset-border">
-                <legend class="fieldset-border">Another interesting box</legend>
-            </fieldset>
-        </div>
-    </div>
-</div>

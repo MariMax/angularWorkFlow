@@ -21,9 +21,8 @@
   "validthis": true,
   "globals": {
     "angular": false,
-    "$":false,
+    "Firebase":false,
     "_":false,
-    "XMLHttpRequest": false,
-    "window": false
+    "sessionStorage": false
   }
 }

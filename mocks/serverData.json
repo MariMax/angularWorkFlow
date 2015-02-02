@@ -1,10 +1,21 @@
-[
-      ["Screen 1", "15/07/2014"],
-      ["Screen 1", "15/07/2014"],
-      ["Screen 1", "15/07/2014"],
-      ["Screen 1", "15/07/2014"],
-      ["Screen 1", "15/07/2014"],
-      ["Screen 1", "15/07/2014"],
-      ["Screen 1", "15/07/2014"],
-      ["Screen 1", "15/07/2014"]
-]
+{
+    "company": {
+        "name": "MyCompany",
+        "stores": [{
+            "name": "MyStore",
+            "sections": [{
+                "name": "MySection1"
+            },
+            {"name":"section2"},
+            {"name":"section3"}],
+        },
+        {
+            "name": "MyStore2",
+            "sections": [{
+                "name": "MySection12"
+            },
+            {"name":"section22"},
+            {"name":"section32"}],
+        },]
+    }
+}
