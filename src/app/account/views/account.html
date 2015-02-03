@@ -1,1 +1,17 @@
-<div>Account</div>
+<div class="account">
+    <ul class="left-side">
+        <li ng-repeat="human in people"><a ng-href="#/account/{{human.uid}}">{{human.name}}</a>
+        </li>
+    </ul>
+    <div class="middle" ng-show="human">
+    	<p>name: {{human.job}}</p>
+    	<p>name: {{human.department}}</p>
+    </div>
+    <div class="controls">
+    	<a href="" ng-click="share()" ng-show="human"></a>
+    	<a href="" ng-click="add()" ></a>
+    	<a href="" ng-click="delete()" ng-show="human"></a>
+    	<a href="" ng-click="edit()" ng-show="human"></a>
+    	<a href="" ng-click="logout()" ></a>
+    </div>
+</div>

@@ -15,9 +15,10 @@
                 } else {
                     defer.resolve(authData);
                 }
-            }, {
-                remember: 'sessionOnly'
             });
+            // , {
+            //     remember: 'sessionOnly'
+            // });
 
             return defer.promise;
         }
@@ -26,10 +27,15 @@
             ref.unauth();
         }
 
+        function checkAuth(){
+            return ref.getAuth();
+        }
+
         return {
             authService: $firebaseAuth(ref),
             login: login,
             logout: logout,
+            checkAuth: checkAuth
         };
     }
 

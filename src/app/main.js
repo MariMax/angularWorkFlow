@@ -10,8 +10,7 @@ angular.module('handsomeTry').config(function($provide) {
 });
 
 angular.module('handsomeTry').run(function($rootScope, $state) {
-  $rootScope.$on('$routeChangeError', function(event, next, previous, error) {
-  	debugger;
+  $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
     if (error === 'AUTH_REQUIRED') {
       $state.go('home');
     }
