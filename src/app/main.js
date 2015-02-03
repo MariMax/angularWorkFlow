@@ -7,6 +7,8 @@ angular.module('handsomeTry', ['ui.router', 'mainModule','accountModule', 'ui.bo
 
 angular.module('handsomeTry').config(function($provide) {
     $provide.constant('baseUrl', 'https://sweltering-fire-6010.firebaseio.com/');
+    $provide.constant('userUrl','users/');
+    $provide.constant('detailsUrl','details/');
 });
 
 angular.module('handsomeTry').run(function($rootScope, $state) {

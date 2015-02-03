@@ -4,14 +4,14 @@
         </li>
     </ul>
     <div class="middle" ng-show="human">
-    	<p>name: {{human.job}}</p>
-    	<p>name: {{human.department}}</p>
+        <p>job: {{human.job}}</p>
+        <p>department: {{human.department}}</p>
     </div>
     <div class="controls">
-    	<a href="" ng-click="share()" ng-show="human"></a>
-    	<a href="" ng-click="add()" ></a>
-    	<a href="" ng-click="delete()" ng-show="human"></a>
-    	<a href="" ng-click="edit()" ng-show="human"></a>
-    	<a href="" ng-click="logout()" ></a>
+        <a href="" ng-click="add()">Add</a>
+        <a href="" ng-click="delete()" ng-show="human">Delete</a>
+        <a href="" ng-click="edit()" ng-show="human">Edit</a>
+        <a href="" ng-click="share()" ng-show="human">share link</a>
+        <a href="" ng-click="logout()">log out</a>
     </div>
 </div>
