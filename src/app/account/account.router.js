@@ -7,8 +7,11 @@ angular.module('accountModule').config(function($stateProvider) {
             templateUrl: 'app/account/views/account.html',
             controller: 'accountController',
             resolve: {
-                'currentAuth': function(auth) {
+                currentAuth: function(auth) {
                     return auth.authService.$requireAuth();
+                },
+                people: function(backEnd){
+                	return backEnd.getUsers();
                 }
             }
         });
