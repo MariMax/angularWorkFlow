@@ -1,6 +1,6 @@
 <div class="account">
     <ul class="left-side">
-        <li ng-repeat="human in people"><a ng-href="#/account/{{human.$id}}">{{human.name}}</a>
+        <li ng-repeat="human in people"><a href="" ng-click="open(human.$id)">{{human.name}}</a>
         </li>
     </ul>
     <div class="middle" ng-show="userDetails">

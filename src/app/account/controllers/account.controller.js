@@ -26,19 +26,26 @@ angular.module('accountModule')
         		$scope.user.name = result.user.name;
         		$scope.userDetails.job = result.details.job;
         		$scope.userDetails.department = result.details.department;
+                $scope.userDetails.$save();
         		$scope.people.$save($scope.user);
         	});
         }
 
         $scope.share = function(){
-        	sharePopUp.open();
+        	sharePopUp.open($scope.user.$id);
+        }
+
+        $scope.open = function(id){
+                $scope.user = $scope.people.$getRecord(id);
+                $scope.userDetails = null;
+                $scope.userDetails = backEnd.getUserDetails($scope.user.detailsId);
         }
 
         if ($state.params.id) {
 
         	people.$loaded().then(function(){
         		$scope.user = $scope.people.$getRecord($state.params.id);
-        		backEnd.getUserDetails($scope.user.detailsId).$bindTo($scope, 'userDetails');
+        		$scope.userDetails = backEnd.getUserDetails($scope.user.detailsId);
         	})
             
         }

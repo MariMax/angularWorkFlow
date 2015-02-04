@@ -15,10 +15,9 @@
                 } else {
                     defer.resolve(authData);
                 }
+            }, {
+                remember: 'sessionOnly'
             });
-            // , {
-            //     remember: 'sessionOnly'
-            // });
 
             return defer.promise;
         }

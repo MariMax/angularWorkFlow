@@ -2,8 +2,8 @@
     'use strict';
 
     function factory($modal, $q, $location) {
-        function ctrl($scope, $modalInstance) {
-            $scope.url = $location.absUrl();
+        function ctrl($scope, $modalInstance, id) {
+            $scope.url = $location.protocol()+'://'+$location.host()+':'+$location.port()+'/#/account/'+id;
 
             $scope.ok = function() {
                 $modalInstance.close($scope.user);
@@ -14,13 +14,18 @@
             };
         }
 
-        function open() {
+        function open(id) {
             var defer = $q.defer();
             var modalInstance = $modal.open({
                 templateUrl: 'app/account/popUps/views/sharePopUp.html',
                 controller: ctrl,
                 backdrop: 'static',
-                size: 'lg'
+                size: 'lg', 
+                resolve: {
+                    id:function(){
+                        return id;
+                    }
+                }
             });
 
             modalInstance.result.then(function() {
