@@ -1,20 +1,16 @@
 'use strict';
 
-angular.module('handsomeTry', ['ui.router', 'mainModule','accountModule', 'ui.bootstrap', 'firebase'])
+angular.module('handsomeTry', [require('authModule'), require('angular-ui-router')])
     .config(function($urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/profile');
     });
-
-angular.module('handsomeTry').config(function($provide) {
-    $provide.constant('baseUrl', 'https://sweltering-fire-6010.firebaseio.com/');
-    $provide.constant('userUrl','users');
-    $provide.constant('detailsUrl','details');
-});
 
 angular.module('handsomeTry').run(function($rootScope, $state) {
   $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
     if (error === 'AUTH_REQUIRED') {
-      $state.go('home');
+      $state.go('login');
     }
   });
 });
+
+export default angular.module('handsomeTry');

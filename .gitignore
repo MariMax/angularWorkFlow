@@ -3,5 +3,6 @@ bower_components
 dist
 .tmp
 .sass-cache
+.idea
 coverage
 src/assets/css/compilledCss
