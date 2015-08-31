@@ -1,16 +1,14 @@
 'use strict';
 
-angular.module('handsomeTry', [require('authModule'), require('angular-ui-router')])
-    .config(function($urlRouterProvider) {
-        $urlRouterProvider.otherwise('/profile');
-    });
+/*js*/
+import angular from 'angular';
+import auth from 'authModule';
+import uiRouter from 'angular-ui-router';
+import defaultRoute from'./config.default.route';
+import defaultAuthAction from './auth.default.error';
+/*css*/
+import 'bootstap.css';
 
-angular.module('handsomeTry').run(function($rootScope, $state) {
-  $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
-    if (error === 'AUTH_REQUIRED') {
-      $state.go('login');
-    }
-  });
-});
-
-export default angular.module('handsomeTry');
+export default angular.module('handsomeTry', [auth, uiRouter])
+    .config(defaultRoute)
+    .run(defaultAuthAction).name;
