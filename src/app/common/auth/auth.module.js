@@ -1,5 +1,9 @@
 'use strict';
 import angular from 'angular';
 import ngStorage from 'ngstorage';
+import authService from './services/auth';
 
-export default angular.module('authModule',[ngStorage]);
+let module = angular.module('authModule',[ngStorage.name]);
+authService(module);
+
+export default module.name;

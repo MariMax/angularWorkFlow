@@ -1,10 +1,13 @@
 'use strict';
 
-angular.module('profileModule').config(function($stateProvider) {
-    $stateProvider
+import MainCtrl from './controllers/profile.controller.js';
+
+export default function($stateProvider) {
+      $stateProvider
         .state('profile', {
             url: '/profile',
             template: require('./views/profile.html'),
-            controller: 'MainCtrl'
+            controller:MainCtrl,
+            controllerAs: 'vm'
         });
-});
+}

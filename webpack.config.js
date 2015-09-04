@@ -3,20 +3,36 @@ var path = require('path');
 
 var BowerWebpackPlugin = require("bower-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var autoprefixer = require('autoprefixer');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+var BUILD = false;
 
 module.exports = {
   entry: './src/app/main.js',
   output: {
-    path: './dist',
-    filename: 'bundle.js',
-    hash: true
+    // Absolute output directory
+    path: __dirname + '/dist',
+
+    // Output path from the view of the page
+    // Uses webpack-dev-server in development
+    publicPath: BUILD ? '/' : 'http://localhost:8080/',
+
+    // Filename for entry points
+    // Only adds hash in build mode
+    filename: BUILD ? '[name].[hash].js' : '[name].bundle.js',
+
+    // Filename for non-entry points
+    // Only adds hash in build mode
+    chunkFilename: BUILD ? '[name].[hash].js' : '[name].bundle.js'
   },
   module: {
+    preLoaders: [],
     loaders: [
-      {test: /\.js$/, loader: 'babel-loader',  include: path.join(__dirname, "src")},
-      {test: /\.css$/, loader: 'style-loader!css-loader'},
-      {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}, // inline base64 URLs for <=8k images, direct URLs for the rest
-      {test: /\.(woff|svg|ttf|eot)([\?]?.*)$/, loader: "file-loader?name=[name].[ext]"}
+      {test: /\.js$/, loader: 'babel', include: path.join(__dirname,'src') },
+      {test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/, loader: 'file'},
+      {test: /\.html$/, loader: 'raw'},
+      {test: /\.css$/, loader:ExtractTextPlugin.extract('style', 'css?sourceMap')}
     ]
   },
   resolve: {
@@ -26,14 +42,28 @@ module.exports = {
     }
   },
   plugins: [
+    new ExtractTextPlugin('[name].[hash].css', {
+      disable: !BUILD
+    }),
+    new HtmlWebpackPlugin({template: './src/index.html', inject: 'body', minify:false}),
+    new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new BowerWebpackPlugin(),
-    new HtmlWebpackPlugin({template: './src/index.html', inject: 'body', filename: 'index.html'})
+    new BowerWebpackPlugin()
     //new webpack.optimize.UglifyJsPlugin()
   ],
+  postcss: [autoprefixer({
+    browsers: ['last 2 version']
+  })],
   devServer: {
     contentBase: "./dist",
+    stats: {
+      modules: false,
+      cached: false,
+      colors: true,
+      chunk: false
+    },
+    hot:true,
     inline: true
   }
 };

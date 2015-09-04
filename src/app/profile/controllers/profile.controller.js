@@ -1,6 +1,9 @@
-'use strict';
+export default class MainCtrl {
+  constructor() {
+    this.greetings = 'Hello';
+  }
 
-angular.module('profileModule')
-    .controller('MainCtrl', function($scope) {
-        $scope.greetings = 'Hello';
-    });
+  sayBuy(){
+    this.greetings = 'Buy'
+  }
+}

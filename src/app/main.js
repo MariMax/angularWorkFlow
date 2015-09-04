@@ -2,15 +2,17 @@
 
 /*js*/
 import angular from 'angular';
-//import auth from 'authModule';
-//import uiRouter from 'angular-ui-router';
-//import bui from 'angular-ui-bootstrap';
-//import defaultRoute from'./config.default.route';
-//import defaultAuthAction from './auth.default.error';
-///*css*/
+import auth from 'authModule';
+import uiRouter from 'angular-ui-router';
+import bui from 'angular-ui-bootstrap';
+import defaultRoute from'./config.default.route';
+import defaultAuthAction from './auth.default.error';
+import profile from './profile/profile.module.js';
+/*css*/
 //import 'bootstrap-css-only';
 
-//export default angular.module('handsomeTry', [auth, uiRouter, bui])
-//    .config(defaultRoute)
-//    .run(defaultAuthAction).name;
-export default angular.module('handsomeTry', []).name;
+angular.module('handsomeTry', [uiRouter, bui, auth, profile])
+    .config(defaultRoute)
+    .run(defaultAuthAction);
+
+angular.bootstrap(document, ['handsomeTry']);

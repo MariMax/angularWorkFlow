@@ -2,18 +2,9 @@
   "name": "angularWorkFlow",
   "version": "0.0.0",
   "homepage": "https://github.com/MariMax/angularWorkFlow",
-  "moduleType": [
-    "es6"
-  ],
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
-    "bootstrap-css-only": "~3.3.5"
+    "bootstrap-css-only": "~3.3.5",
+    "angular": "~1.4.5"
   }
 }
