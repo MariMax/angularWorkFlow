@@ -8,7 +8,7 @@ import bui from 'angular-ui-bootstrap';
 import defaultRoute from'./config.default.route';
 import defaultAuthAction from './auth.default.error';
 /*css*/
-import 'bootstap-css-only';
+import 'bootstrap-css-only';
 
 export default angular.module('handsomeTry', [auth, uiRouter, bui])
     .config(defaultRoute)
