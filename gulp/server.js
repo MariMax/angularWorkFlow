@@ -21,8 +21,6 @@ function browserSyncInit(baseDir, files, browser, baseFile) {
     };
   }
 
-  routes['/mocks'] ='mocks';
-
   browserSync.instance = browserSync.init(files, {
     startPath: '/index.html',
     server: {
@@ -42,7 +40,7 @@ gulp.task('serve', ['watch'], function () {
     'src/assets/images/**/*',
     'src/*.html',
     'src/app/**/*.html',
-    'src/{app,assets}/**/*.css'
+    'src/{css,app,assets}/**/*.css'
   ]);
 });
 

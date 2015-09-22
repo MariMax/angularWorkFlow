@@ -2,6 +2,9 @@
 
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
+var csso = require('gulp-csso-fix-in-csso215');
+var streamqueue = require('streamqueue');
+var userFonts = gulp.src('src/assets/**/*.{eot,svg,ttf,woff}');
 
 
 var $ = require('gulp-load-plugins')({
@@ -30,6 +33,15 @@ gulp.task('partials', function() {
         .pipe($.size());
 });
 
+
+gulp.task('csso', function() {
+    return gulp.src('src/assets/js/**/*.css')
+        .pipe(csso())
+        .pipe(gulp.dest('.tmp'))
+        .pipe($.size());
+});
+
+
 gulp.task('html', ['injects', 'scripts', 'partials'], function() {
     var htmlFilter = $.filter('*.html');
     var jsFilter = $.filter('**/*.js');
@@ -52,7 +64,7 @@ gulp.task('html', ['injects', 'scripts', 'partials'], function() {
         }))
         .pipe(jsFilter.restore())
         .pipe(cssFilter)
-        .pipe($.csso())
+        .pipe(csso())
         .pipe(cssFilter.restore())
         .pipe(assets.restore())
         .pipe($.useref())
@@ -73,6 +85,7 @@ gulp.task('html', ['injects', 'scripts', 'partials'], function() {
         //     progressive: true,
         //     interlaced: true
         // })))
+
 gulp.task('images', function() {
     return gulp.src('src/assets/images/**/*')
         .pipe(gulp.dest('dist/assets/images'))
@@ -80,7 +93,10 @@ gulp.task('images', function() {
 });
 
 gulp.task('fonts', function() {
-    return gulp.src($.mainBowerFiles())
+    return streamqueue({ objectMode: true },
+                        userFonts,
+                        gulp.src($.mainBowerFiles({paths: {bowerDirectory: './bower_components'}}))
+         )
         .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
         .pipe($.flatten())
         .pipe(gulp.dest('dist/fonts'))
@@ -88,13 +104,13 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('misc', function() {
-    return gulp.src('src/**/*.ico')
+    return gulp.src('src/*.{ico,png}')
         .pipe(gulp.dest('dist'))
         .pipe($.size());
 });
 
 gulp.task('clean', function(done) {
-    $.del(['.tmp', 'dist', 'bower_components'], done);
+    $.del(['.tmp', 'dist', './bower_components','bower_components'], done);
 });
 
 gulp.task('build', ['bower'], function(done) {

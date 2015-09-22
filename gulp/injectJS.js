@@ -9,7 +9,7 @@ var $ = require('gulp-load-plugins')({
 
 gulp.task('injectJS', function() {
     return gulp.src('src/index.html')
-        .pipe($.inject(gulp.src('src/app/**/*.js').pipe($.angularFilesort()), {
+        .pipe($.inject(gulp.src(['src/assets/**/*.js','src/app/**/*.js']).pipe($.angularFilesort()), {
             read: false,
             starttag: '<!-- inject:userJS -->',
             addRootSlash: false,

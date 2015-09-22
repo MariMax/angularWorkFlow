@@ -8,7 +8,7 @@ gulp.task('wiredep', function () {
 
   return gulp.src('src/index.html')
     .pipe(wiredep({
-      directory: 'bower_components',
+      directory: './bower_components',
       exclude: [/bootstrap-sass-official/, /bootstrap.js/],
     }))
     .pipe(gulp.dest('src'));
