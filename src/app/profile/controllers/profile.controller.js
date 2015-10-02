@@ -1,4 +1,4 @@
-export default class MainCtrl {
+export default class ProfileCtrl {
   constructor() {
     this.greetings = 'Hello';
   }

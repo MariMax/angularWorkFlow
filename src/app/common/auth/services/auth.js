@@ -3,7 +3,7 @@ export default class Auth {
     this.storage = storage;
   }
 
-  isLoggedInfunction() {
+  isLoggedIn() {
     return this.storage.isLoggedIn;
   }
 

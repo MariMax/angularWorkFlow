@@ -1,14 +1,19 @@
 'use strict';
 
-import MainCtrl from './controllers/profile.controller.js'
+import ProfileCtrl from './controllers/profile.controller.js'
 
 export default function($stateProvider) {
   $stateProvider
     .state('profile', {
       url: '/profile',
       template: require('./views/profile.html'),
-      controller: MainCtrl,
-      controllerAs: 'vm'
+      controller: ProfileCtrl,
+      controllerAs: 'vm',
+      resolve:{
+        isAuthenticated:(authService) => {
+          return authService.isLoggedIn()?Promise.resolve():Promise.reject();
+        }
+      }
 
     })
 }

@@ -8,11 +8,12 @@ import bui from 'angular-ui-bootstrap'
 import defaultRoute from'./config.default.route'
 import defaultAuthAction from './auth.default.error'
 import profile from './profile/profile.module.js'
-/* css */
+/* css global */
 import 'bootstrap-css-only'
-
-angular.module('app', [uiRouter, bui, auth, profile])
+console.log('Hi');
+angular.module('app', [uiRouter, bui, auth.name, profile.name])
     .config(defaultRoute)
     .run(defaultAuthAction);
 
 angular.bootstrap(document, ['app']);
+
