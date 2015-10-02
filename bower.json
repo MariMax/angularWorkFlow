@@ -4,7 +4,6 @@
   "homepage": "https://github.com/MariMax/angularWorkFlow",
   "license": "MIT",
   "dependencies": {
-    "bootstrap-css-only": "~3.3.5",
-    "angular": "~1.4.5"
+    "bootstrap-css-only": "~3.3.5"
   }
 }

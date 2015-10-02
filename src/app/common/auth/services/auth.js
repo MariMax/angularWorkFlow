@@ -1,5 +1,17 @@
-import Auth from './AuthClass';
+export default class Auth {
+  constructor(storage) {
+    this.storage = storage;
+  }
 
-export default (module)=> {
-  module.service('authService', ['$sessionStorage', Auth]);
+  isLoggedInfunction() {
+    return this.storage.isLoggedIn;
+  }
+
+  logIn() {
+    this.storage.isLoggedIn = true;
+  }
+
+  logOut() {
+    this.storage.isLoggedIn = false;
+  }
 }

@@ -4,7 +4,8 @@ var path = require('path');
 var BowerWebpackPlugin = require("bower-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var precss = require('precss');
+var cssnext = require('cssnext');
 
 var BUILD = false;
 
@@ -29,24 +30,22 @@ module.exports = {
   module: {
     preLoaders: [],
     loaders: [
-      {test: /\.js$/, loader: 'babel', include: path.join(__dirname,'src') },
+      {test: /((\.js)|(\.jsx))$/, loader: 'babel!eslint', include: path.join(__dirname, 'src')},
       {test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/, loader: 'file'},
       {test: /\.html$/, loader: 'raw'},
-      {test: /\.css$/, loader:ExtractTextPlugin.extract('style', 'css?sourceMap')}
+      {test: /\.css$/, loader: 'style-loader!css-loader!postcss'},
+      {test: /\.styl$/, loader: 'style-loader!css-loader!postcss!stylus-loader'}
     ]
   },
   resolve: {
     extensions: ['', '.js', '.json', '.css'],
     alias: {
-      authModule: './common/auth/auth.module.js'
+      'bootstrap-css-only': './bower_components/bootstrap-css-only/css/bootstrap.css'
     }
   },
   plugins: [
-    new ExtractTextPlugin('[name].[hash].css', {
-      disable: !BUILD
-    }),
-    new HtmlWebpackPlugin({template: './src/index.html', inject: 'body', minify:false}),
-    new webpack.NoErrorsPlugin(),
+    new HtmlWebpackPlugin({template: './src/index.html', inject: 'body', minify: true}),
+    //new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new BowerWebpackPlugin()
@@ -54,7 +53,13 @@ module.exports = {
   ],
   postcss: [autoprefixer({
     browsers: ['last 2 version']
-  })],
+  }),
+    precss,
+    cssnext
+  ],
+  eslint: {
+    configFile: './.eslintrc'
+  },
   devServer: {
     contentBase: "./dist",
     stats: {
@@ -63,7 +68,7 @@ module.exports = {
       colors: true,
       chunk: false
     },
-    hot:true,
+    hot: true,
     inline: true
   }
 };

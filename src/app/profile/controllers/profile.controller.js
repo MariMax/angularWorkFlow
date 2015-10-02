@@ -3,7 +3,7 @@ export default class MainCtrl {
     this.greetings = 'Hello';
   }
 
-  sayBuy(){
+  sayBuy() {
     this.greetings = 'Buy'
   }
 }
