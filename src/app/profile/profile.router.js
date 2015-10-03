@@ -11,7 +11,7 @@ export default function($stateProvider) {
       controllerAs: 'vm',
       resolve:{
         isAuthenticated:(authService) => {
-          return authService.isLoggedIn()?Promise.resolve():Promise.reject();
+          return authService.isLoggedIn()?Promise.resolve():Promise.reject('AUTH_REQUIRED');
         }
       }
 

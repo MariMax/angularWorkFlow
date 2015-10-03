@@ -1,5 +1,5 @@
 'use strict';
-import angular from 'angular';
+import angular from 'angular'
 import ngStorage from 'ngstorage';
 import Auth from './services/Auth';
 

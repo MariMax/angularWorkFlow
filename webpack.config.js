@@ -49,7 +49,8 @@ module.exports = {
     new HtmlWebpackPlugin({template: './src/index.html', inject: 'body', minify: true}),
     //new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.AggressiveMergingPlugin()
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.HotModuleReplacementPlugin()
     //new webpack.optimize.UglifyJsPlugin()
   ],
   postcss: [autoprefixer({
