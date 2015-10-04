@@ -1,40 +1,47 @@
-    <div class="login-page">
-        <div class="content-wrapper">
-            <div class="login-form">
-                <div class="header">
-                    <div class="banner"><img src="http://placehold.it/265x80&text=Logo%20or%20banner">
-                    </div>
-                </div>
-                <div class="info">
-                    <p>Sign in form</p>
-                </div>
-                <div class="user-name">
-                    <p>Username</p>
-                </div>
-                <div class="user-name-input"><i class="fa fa-envelope"></i>
-                    <input type="email" ng-model="model.email">
-                </div>
-                <div class="password">
-                    <p>Password</p>
-                </div>
-                <div class="password-input"><i class="fa fa-lock"></i>
-                    <input type="password" ng-model="model.password">
-                </div>
-                <div class="sign-in"><a href="" ng-click="signIn()">Sign in</a><a ng-show="showError">Authentification error</a>
-                </div>
-                <div class="footer"></div>
-            </div>
-            <div class="additional-info">
-                <div class="logo"><img src="http://placehold.it/265x80&text=Logo%20picture" alt="Logo">
-                </div>
-                <div class="header">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, quod?
-                    </p>
-                </div>
-                <div class="text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque illo rem et laboriosam distinctio doloribus veritatis repellat, quaerat officiis, amet praesentium obcaecati, quia modi numquam eum consequuntur tempore libero voluptates cupiditate perspiciatis harum accusamus minus? Numquam repellat molestiae impedit, officia.</p>
-                </div>
-            </div>
+<div class="login-page">
+
+  <div class="content-wrapper">
+    <form>
+      <div class="login-form">
+        <div class="header">
+          <div class="banner"><img src="http://placehold.it/265x80&text=Logo%20or%20banner">
+          </div>
         </div>
+        <div class="info">
+          <p>Sign in form</p>
+        </div>
+        <div class="user-name">
+          <p>Username</p>
+        </div>
+        <div class="user-name-input"><i class="fa fa-envelope"></i>
+          <input type="email" ng-model="model.email">
+        </div>
+        <div class="password">
+          <p>Password</p>
+        </div>
+        <div class="password-input"><i class="fa fa-lock"></i>
+          <input type="password" ng-model="model.password">
+        </div>
+        <div class="sign-in"><input type="submit" ng-click="signIn()" value="Sign in"><a ng-show="showError">Authentification error</a>
+        </div>
+        <div class="footer"></div>
+      </div>
+    </form>
+
+    <div class="additional-info">
+      <div class="logo"><img src="http://placehold.it/265x80&text=Logo%20picture" alt="Logo">
+      </div>
+      <div class="header">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, quod?
+        </p>
+      </div>
+      <div class="text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque illo rem et laboriosam distinctio doloribus
+          veritatis repellat, quaerat officiis, amet praesentium obcaecati, quia modi numquam eum consequuntur tempore
+          libero voluptates cupiditate perspiciatis harum accusamus minus? Numquam repellat molestiae impedit,
+          officia.</p>
+      </div>
     </div>
+  </div>
+</div>

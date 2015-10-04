@@ -34,7 +34,7 @@ module.exports = {
     loaders: [
       {test: /((\.js)|(\.jsx))$/, loader: 'ng-annotate!babel!eslint', include: path.join(__dirname, 'src')},
       {test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/, loader: 'file'},
-      {test: /\.html$/, loader: 'raw'},
+      {test: /\.html$/, loader: 'html'},
       {test: /\.css$/, loader: 'style-loader!css-loader!postcss'},
       {test: /\.styl$/, loader: 'style-loader!css-loader!postcss!stylus-loader'}
     ]
