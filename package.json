@@ -1,8 +1,8 @@
 {
   "name": "webpackTry",
   "version": "0.0.0",
-  "scripts":{
-    "start":"webpack-dev-server"
+  "scripts": {
+    "start": "webpack-dev-server"
   },
   "dependencies": {
     "angular": "^1.4.5",
@@ -11,6 +11,7 @@
     "ngstorage": "^0.3.9"
   },
   "devDependencies": {
+    "angular-mocks": "^1.4.7",
     "autoprefixer": "^6.0.0",
     "babel-core": "^5.8.23",
     "babel-loader": "^5.3.2",
@@ -22,7 +23,13 @@
     "file-loader": "^0.8.4",
     "html-loader": "^0.3.0",
     "html-webpack-plugin": "^1.6.1",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.10",
+    "karma-coverage": "^0.5.2",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
     "ng-annotate-loader": "0.0.10",
+    "phantomjs": "^1.9.18",
     "postcss-loader": "^0.6.0",
     "precss": "^1.2.3",
     "style-loader": "^0.12.3",

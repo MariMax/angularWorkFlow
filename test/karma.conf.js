@@ -1,4 +1,5 @@
 'use strict';
+var webpackConfig = require('./webpack.test');
 
 module.exports = function(config) {
 
@@ -6,28 +7,35 @@ module.exports = function(config) {
     basePath: '..',
 
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'src/app/**/*.js',
-      'test/unit/**/*.js'
+      //Grab all files in the ./test/unit folder that contain "spec".
+      './node_modules/angular/angular.js',
+      './node_modules/angular-mocks/angular-mocks.js',
+      './tests.webpack.js'
     ],
 
+    preprocessors: {
+      //Reference: http://webpack.github.io/docs/testing.html
+      //Reference: https://github.com/webpack/karma-webpack
+      //Convert files with webpack and load sourcemaps
+      './tests.webpack.js': ['webpack', 'sourcemap']
+    },
+
     autoWatch: false,
+
+    singleRun: true,
 
     frameworks: ['jasmine'],
 
     browsers: ['PhantomJS'],
 
-    preprocessors: {
-      'src/app/**/*.js': ['coverage']
-    },
+    reporters: ['progress', 'coverage'],
 
     coverageReporter: {
-      type: 'html',
-      dir: 'coverage/'
+      dir: 'dist/coverage/',
+      type: 'html'
     },
 
-    reporters: ['progress', 'coverage'],
+    webpack: webpackConfig,
 
     plugins: [
       'karma-phantomjs-launcher',
