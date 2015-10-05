@@ -1,6 +1,9 @@
 {
   "name": "webpackTry",
   "version": "0.0.0",
+  "scripts":{
+    "start":"webpack-dev-server"
+  },
   "dependencies": {
     "angular": "^1.4.5",
     "angular-ui-bootstrap": "^0.13.4",
