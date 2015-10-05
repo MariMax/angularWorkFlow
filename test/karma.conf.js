@@ -2,39 +2,39 @@
 
 module.exports = function(config) {
 
-    config.set({
-        basePath: '..', //!\\ Ignored through gulp-karma //!\\
+  config.set({
+    basePath: '..',
 
-        files: [ //!\\ Ignored through gulp-karma //!\\
-            'bower_components/angular/angular.js',
-            'bower_components/angular-mocks/angular-mocks.js',
-            'src/app/**/*.js',
-            'test/unit/**/*.js'
-        ],
+    files: [
+      'bower_components/angular/angular.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'src/app/**/*.js',
+      'test/unit/**/*.js'
+    ],
 
-        autoWatch: false,
+    autoWatch: false,
 
-        frameworks: ['jasmine'],
+    frameworks: ['jasmine'],
 
-        browsers: ['PhantomJS'],
+    browsers: ['PhantomJS'],
 
-        preprocessors: {
-            'src/app/**/*.js': ['coverage']
-        },
+    preprocessors: {
+      'src/app/**/*.js': ['coverage']
+    },
 
-        coverageReporter: {
-            type: 'html',
-            dir: 'coverage/'
-        },
+    coverageReporter: {
+      type: 'html',
+      dir: 'coverage/'
+    },
 
-        reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage'],
 
-        plugins: [
-            'karma-phantomjs-launcher',
-            'karma-chrome-launcher',
-            'karma-jasmine',
-            'karma-coverage'
-        ]
-    });
+    plugins: [
+      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
+      'karma-jasmine',
+      'karma-coverage'
+    ]
+  });
 
 };
