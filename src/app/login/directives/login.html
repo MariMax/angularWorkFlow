@@ -1,42 +1,42 @@
-<div class="login-page">
+<div ng-class="styles['login-page']">
 
-  <div class="content-wrapper">
+  <div ng-class="styles['content-wrapper']">
     <form>
-      <div class="login-form">
-        <div class="header">
-          <div class="banner"><img src="http://placehold.it/265x80&text=Logo%20or%20banner">
+      <div ng-class="styles['login-form']">
+        <div ng-class="styles.header">
+          <div ng-class="styles.banner"><img src="http://placehold.it/265x80&text=Logo%20or%20banner">
           </div>
         </div>
-        <div class="info">
+        <div ng-class="styles.info">
           <p>Sign in form</p>
         </div>
-        <div class="user-name">
+        <div ng-class="styles['user-name']">
           <p>Username</p>
         </div>
-        <div class="user-name-input"><i class="fa fa-envelope"></i>
+        <div ng-class="styles['user-name-input']"><i class="fa fa-envelope"></i>
           <input type="email" ng-model="model.email">
         </div>
-        <div class="password">
+        <div ng-class="styles.password">
           <p>Password</p>
         </div>
-        <div class="password-input"><i class="fa fa-lock"></i>
+        <div ng-class="styles['password-input']"><i class="fa fa-lock"></i>
           <input type="password" ng-model="model.password">
         </div>
-        <div class="sign-in"><input type="submit" ng-click="signIn()" value="Sign in"><a ng-show="showError">Authentification error</a>
+        <div ng-class="styles['sign-in']"><input type="submit" ng-click="signIn()" value="Sign in"><a ng-show="showError">Authentification error</a>
         </div>
-        <div class="footer"></div>
+        <div ng-class="styles.footer"></div>
       </div>
     </form>
 
-    <div class="additional-info">
-      <div class="logo"><img src="http://placehold.it/265x80&text=Logo%20picture" alt="Logo">
+    <div ng-class="styles['additional-info']">
+      <div ng-class="styles.logo"><img src="http://placehold.it/265x80&text=Logo%20picture" alt="Logo">
       </div>
-      <div class="header">
+      <div ng-class="styles.header">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, quod?
         </p>
       </div>
-      <div class="text">
+      <div ng-class="styles.text">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque illo rem et laboriosam distinctio doloribus
           veritatis repellat, quaerat officiis, amet praesentium obcaecati, quia modi numquam eum consequuntur tempore
           libero voluptates cupiditate perspiciatis harum accusamus minus? Numquam repellat molestiae impedit,

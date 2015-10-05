@@ -35,8 +35,14 @@ module.exports = {
       {test: /((\.js)|(\.jsx))$/, loader: 'ng-annotate!babel!eslint', include: path.join(__dirname, 'src')},
       {test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/, loader: 'file'},
       {test: /\.html$/, loader: 'html'},
-      {test: /\.css$/, loader: 'style-loader!css-loader!postcss'},
-      {test: /\.styl$/, loader: 'style-loader!css-loader!postcss!stylus-loader'}
+      {test: /\.css$/, loader: 'style-loader!css-loader', include: path.join(__dirname, 'bower_components')},
+      {test: /\.css$/,
+        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss',
+        exclude: path.join(__dirname, 'bower_components')
+      },
+      {test: /\.styl$/,
+        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!stylus-loader'
+      }
     ]
   },
   resolve: {
