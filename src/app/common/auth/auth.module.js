@@ -4,4 +4,4 @@ import ngStorage from 'ngstorage';
 import Auth from './services/Auth';
 
 export default angular.module('authModule',[ngStorage.name])
-  .service('authService', ['$sessionStorage', Auth])
+  .service('authService', ['$sessionStorage','$q', Auth])

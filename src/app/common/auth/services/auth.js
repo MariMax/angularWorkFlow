@@ -1,6 +1,7 @@
 export default class Auth {
-  constructor(storage) {
+  constructor(storage, promise) {
     this.storage = storage;
+    this.promise = promise;
   }
 
   isLoggedIn() {
@@ -8,7 +9,7 @@ export default class Auth {
   }
 
   logIn(email, pass) {
-    const defer = Promise.defer();
+    const defer = this.promise.defer();
 
     this.storage.isLoggedIn = true;
     this.storage.email = email;
