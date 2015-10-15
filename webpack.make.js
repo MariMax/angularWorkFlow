@@ -5,10 +5,13 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var precss = require('precss');
 var cssnext = require('cssnext');
+//var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+//var reset = require('postcss-autoreset');
+//var pInitial = require('postcss-initial');
 
 module.exports = function makeWebpackConfig(options) {
   var config = {
-    entry: './src/app/main.js',
+    entry: path.join(__dirname, '/src/app/main.js'),
     output: {
       //Absolute output directory
       path: path.join(__dirname, '/dist'),
@@ -25,7 +28,6 @@ module.exports = function makeWebpackConfig(options) {
       //Only adds hash in build mode
       chunkFilename: options.BUILD ? '[name].[hash].js' : '[name].bundle.js'
     },
-    cache: true,
     debug: !options.BUILD,
     devtool: options.BUILD ? '' : 'source-map',
 
@@ -58,18 +60,20 @@ module.exports = function makeWebpackConfig(options) {
     }),
       precss,
       cssnext
+//      reset,
+//      pInitial
     ],
     eslint: {
-      configFile: './.eslintrc'
+      configFile: path.join(__dirname, '.eslintrc')
     },
     plugins: [
-      new HtmlWebpackPlugin({template: './src/index.html', inject: 'body', minify: true}),
+      new HtmlWebpackPlugin({template: path.join(__dirname, '/src/index.html'), inject: 'body', minify: true}),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.AggressiveMergingPlugin(),
       new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-      contentBase: './dist',
+      contentBase: path.join(__dirname, '/dist'),
       stats: {
         modules: false,
         cached: false,
