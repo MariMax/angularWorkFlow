@@ -21,15 +21,13 @@ describe('Service: auth', function() {
     expect(auth.logOut).toBeDefined();
   });
 
-  it('should be logIn', function() {
-    auth.logIn('email', 'pass');
-
-    $rootScope.$digest();
+  it('should be logged In', function() {
+    storage.isLoggedIn = true;
 
     expect(auth.isLoggedIn()).toBeTruthy();
   });
 
-  it('should save credentials', function() {
+  it('should log In and save credentials', function() {
     auth.logIn('email', 'pass');
 
     $rootScope.$digest();
@@ -39,7 +37,7 @@ describe('Service: auth', function() {
     expect(storage.isLoggedIn).toBeTruthy();
   });
 
-  it('should save credentials', function() {
+  it('should log out and remove credentials', function() {
     storage.email = 'email';
     storage.pass = 'pass';
     storage.isLoggedIn = true;
